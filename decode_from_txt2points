@@ -1,9 +1,9 @@
-#перевод точек из txt в массив
 def decoderOK():
+    coord = []
     file = open('points.txt', 'r')
     mas = file.read().split('\n')
-    points = []
     for i in range(len(mas) - 1):
-        points.append([])
-        
-        
+        coord.append([])
+        coord[i].append(float(mas[i][1:4]))
+        coord[i].append(float(mas[i][6:9]))
+    return coord
