@@ -1,3 +1,4 @@
+#перевод точек из txt в массив
 def decoderOK():
     file = open('points.txt', 'r')
     mas = file.read().split('\n')
