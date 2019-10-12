@@ -2,5 +2,8 @@
 def decoderOK():
     file = open('points.txt', 'r')
     mas = file.read().split('\n')
+    points = []
     for i in range(len(mas) - 1):
-        return(float(mas[i][1:4]), float(mas[i][6:9]))
+        points.append([])
+        
+        
