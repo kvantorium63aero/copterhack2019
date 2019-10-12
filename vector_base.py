@@ -10,7 +10,7 @@ image1 = []
 for i in range(len(image)):
     image1.append([])
     for j in range(len(image[0])):
-        if image[i][j] >= 255:
+        if image[i][j] >= 1:
             image1[i].append(0)
         else:
             image1[i].append(1)
