@@ -1,3 +1,4 @@
+#основной способ сжатия - преобразования в пространство поля полета, создание текстового файла с последовательностью точек полета. 
 import cv2
 import math
 
@@ -89,4 +90,3 @@ for i in range(len(way)):
     f.write(str(way[i]) + '\n')
 f.close()
 
-decoderOK.decoderOK()
