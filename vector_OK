@@ -1,6 +1,5 @@
 import cv2
 import math
-import decoderOK
 
 image = cv2.imread('kek.png', 0)
 
@@ -49,23 +48,6 @@ for ii in range(leninm):
             new_mas[ii].append(1)
         else:
             new_mas[ii].append(0)
-'''
-for i in range(len(image1)):
-    for j in range(len(image1[0])):
-        print(image1[i][j], end = ' ')
-    print('\n')
-print('----------------------')
-
-for i in range(len(mas_count)):
-    for j in range(len(mas_count[0])):
-        print(mas_count[i][j], end = ' ')
-    print('\n')
-print('----------------------')
-'''
-for i in range(len(new_mas)):
-    for j in range(len(new_mas[0])):
-        print(new_mas[i][j], end = ' ')
-    print('\n')
 
 
 coord = []
