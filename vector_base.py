@@ -1,6 +1,6 @@
-#основной способ сжатия - преобразования в пространство поля полета, создание текстового файла с последовательностью точек полета. 
 import cv2
 import math
+import decoderOK
 
 image = cv2.imread('kek.png', 0)
 
@@ -49,16 +49,38 @@ for ii in range(leninm):
             new_mas[ii].append(1)
         else:
             new_mas[ii].append(0)
+'''
+for i in range(len(image1)):
+    for j in range(len(image1[0])):
+        print(image1[i][j], end = ' ')
+    print('\n')
+print('----------------------')
 
+for i in range(len(mas_count)):
+    for j in range(len(mas_count[0])):
+        print(mas_count[i][j], end = ' ')
+    print('\n')
+print('----------------------')
+'''
+k = 0
+for i in range(len(new_mas)):
+    for j in range(len(new_mas[0])):
+        print(new_mas[i][j], end = ' ')
+        if new_mas[i][j] == 1:
+            k += 1
+    print('\n')
 
+#print(k)
 coord = []
 
-for i in range(len(new_mas) - 1, 1, -1):
-    for j in range(len(new_mas[0])):
+for j in range(len(new_mas[0])):
+    for i in range(len(new_mas) - 1, 1, -1):
         if new_mas[i][j] == 1:
+            #print(j, len(new_mas) - i)
+            #print(new_mas[i][j])
             coord.append([])
-            coord[-1].append((i + 1) / 10)
-            coord[-1].append((j + 1) / 10)
+            coord[-1].append(j / 10)
+            coord[-1].append((len(new_mas) - i) / 10)
 
 
 way = []
@@ -69,6 +91,7 @@ way[0].append(cX)
 way[0].append(cY)
 k = 1
 del coord[0]
+
 
 while (len(coord) != 0):
     minr = 10e10
@@ -90,3 +113,4 @@ for i in range(len(way)):
     f.write(str(way[i]) + '\n')
 f.close()
 
+decod = decoderOK.decoderOK()
