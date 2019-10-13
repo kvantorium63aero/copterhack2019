@@ -12,10 +12,10 @@ def codi():
     for i in range(len(image)):
         image1.append([])
         for j in range(len(image[0])):
-            if image[i][j] >= 255:
-                image1[i].append(0)
-            else:
+            if image[i][j] >= 1:
                 image1[i].append(1)
+            else:
+                image1[i].append(0)
 
     leninm = 30
     lenjnm = (len(image1[0]) / len(image1)) * 30
@@ -52,7 +52,6 @@ def codi():
             else:
                 new_mas[ii].append(0)
 
-
     coord = []
 
     for i in range(len(new_mas)):
@@ -69,7 +68,6 @@ def codi():
 
     print(coord)
 
-
     way = []
     cX = coord[0][0]
     cY = coord[0][1]
@@ -80,14 +78,17 @@ def codi():
     del coord[0]
 
     while (len(coord) != 0):
-        minr = 10e10
+        minr = 10000000.0
         ind = 0
         for i in range(len(coord)):
-            if math.sqrt((coord[i][0] - cX) ** 2 + (coord[i][1] - cY) ** 2) < minr:
-                minr = math.sqrt((coord[i][0] - cX) ** 2 + (coord[i][1] - cY) ** 2)
+            rast =math.sqrt((coord[i][0] - cX) ** 2 + (coord[i][1] - cY) ** 2)
+            if rast < minr:
+                minr = rast
                 ind = i
-                cX = coord[i][0]
-                cY = coord[i][1]
+                c1X = coord[i][0]
+                c1Y = coord[i][1]
+        cX = c1X
+        cY = c1Y
         way.append([])
         way[k].append(cX)
         way[k].append(cY)
@@ -99,6 +100,3 @@ def codi():
     for i in range(len(way)):
         f.write(str(way[i]) + '\n')
     f.close()
-
-if __name__ == '__main__':
-    codi()
