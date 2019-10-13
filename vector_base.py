@@ -64,8 +64,8 @@ def codi():
         for j in range(len(new_mas[0])):
             if new_mas[i][j] == 1:
                 coord.append([])
-                coord[-1].append((len(new_mas) - i) / 10)
                 coord[-1].append(j / 10)
+                coord[-1].append((len(new_mas) - i) / 10)
 
     print(coord)
 
