@@ -33,7 +33,6 @@ set_effect = rospy.ServiceProxy('led/set_effect', SetLEDEffect)  # define proxy 
 
 def main():
     rospy.init_node('bot')
-    bridge = CvBridge()
     vk_session = vk_api.VkApi(token='TOKEN')
     vk = vk_session.get_api()
     longpoll = VkBotLongPoll(vk_session, '187507235')
@@ -58,11 +57,11 @@ def main():
                     message='Взлёт?'
                 )
         if event.type == VkBotEventType.MESSAGE_NEW and event.object.text.lower() == "да":
-            flight.polet()
             vk.messages.send(
                 peer_id=int(event.object.from_id),
                 random_id=get_random_id(),
                 message='Полетели рисовать!'
+                flight.polet()
             )
 
 
