@@ -15,7 +15,7 @@ from urllib.request import urlopen
 def main():
     rospy.init_node('bot')
     bridge = CvBridge()
-    vk_session = vk_api.VkApi(token='d59a3bb779a2a5a42a7b3fdf0f986fab337dbc0eeba9eb575115e7a4f5800eb094585b1d6cbd17587398b')
+    vk_session = vk_api.VkApi(token='TOKEN')
     vk = vk_session.get_api()
     longpoll = VkBotLongPoll(vk_session, '187507235')
 
