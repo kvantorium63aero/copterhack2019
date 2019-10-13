@@ -28,15 +28,15 @@ def navigate_wait(x, y, z, speed, frame_id, tolerance=0.3):
     while not rospy.is_shutdown():
         telem = get_telemetry(frame_id='navigate_target')
         if math.sqrt(telem.x ** 2 + telem.y ** 2 + telem.z ** 2) < tolerance:
+	    set_effect(r = 255, g = 0, b = 255)
             break
 def polet():
 	set_effect(r=0, g=0, b=0)
 	navigate(x=0, y=0, z=2.5, speed=1, frame_id='body', auto_arm=True)
 	time.sleep(5)
 	s = 0.5 #speed
-	set_effect(r = 255, g = 0, b = 255)
 	for i in range(len(mas)):
-		navigate_wait(x=mas[i], y=mas[i], z=1.5, speed=s, frame_id='aruco_map')
+		navigate_wait(x=mas[i][0], y=2, z=mas[i][1], speed=s, frame_id='aruco_map')
 
 	set_effect(r=0, g=0, b=0)
 	res = land()
