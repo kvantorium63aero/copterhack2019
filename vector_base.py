@@ -1,11 +1,10 @@
-#основной способ сжатия - преобразования в пространство поля полета, создание текстового файла с последовательностью точек полета. 
 import cv2
 import math
 
 
 
 def codi():
-    image = cv2.imread('img.png', 0)
+    image = cv2.imread('kek.png', 0)
 
     im = image.shape
 
@@ -13,10 +12,10 @@ def codi():
     for i in range(len(image)):
         image1.append([])
         for j in range(len(image[0])):
-            if image[i][j] >= 1:
-                image1[i].append(1)
-            else:
+            if image[i][j] >= 255:
                 image1[i].append(0)
+            else:
+                image1[i].append(1)
 
     leninm = 30
     lenjnm = (len(image1[0]) / len(image1)) * 30
@@ -65,8 +64,10 @@ def codi():
         for j in range(len(new_mas[0])):
             if new_mas[i][j] == 1:
                 coord.append([])
-                coord[-1].append((i + 1) / 10)
-                coord[-1].append((j + 1) / 10)
+                coord[-1].append((len(new_mas) - i) / 10)
+                coord[-1].append(j / 10)
+
+    print(coord)
 
 
     way = []
@@ -92,6 +93,7 @@ def codi():
         way[k].append(cY)
         k += 1
         del coord[ind]
+
 
     f = open('points.txt', 'w')
     for i in range(len(way)):
