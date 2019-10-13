@@ -1,4 +1,6 @@
+import vector_base
 def decoderOK():
+    vector_base.codi()
     coord = []
     file = open('points.txt', 'r')
     mas = file.read().split('\n')
