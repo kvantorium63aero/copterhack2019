@@ -9,3 +9,4 @@ def decoderOK():
     return coord
 
 #Danila good man
+#Anton not gandon
