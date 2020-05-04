@@ -8,6 +8,6 @@ def decoderOK():
         coord[i].append(float(mas[i][6:9]))
     return coord
 
-#Danila good man
-#Anton not gandon
-#Danila the best
+# Danila good man
+# Anton not gandon
+# Danila the best
