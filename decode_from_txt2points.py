@@ -7,3 +7,5 @@ def decoderOK():
         coord[i].append(float(mas[i][1:4]))
         coord[i].append(float(mas[i][6:9]))
     return coord
+
+#Danila good man
